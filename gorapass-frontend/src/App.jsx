@@ -1,38 +1,46 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {
+  BrowserRouter as Router,
+  Routes, Route, Link
+} from 'react-router-dom'
 
-function ListStamps() {
-  const [stamps, setStamps] = useState([]);
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/gorapass/stamps")
-      .then(response => response.json())
-      .then(json => setStamps(json))
-      .catch(error => console.error(error));
-  }, []);
+import Home from './components/Home'
+import AllStamps from './components/AllStamps'
+import OpenStamps from './components/OpenStamps'
+import CompletedStamps from './components/CompletedStamps'
+import Stamp from './components/Stamp'
 
-  console.log(stamps)
 
-  return (
-    <div>
-      <ul>
-        {stamps.map(stamp => {
-          return <li>{stamp.stamp_name}</li>
-        }) }
-      </ul>
 
-    </div>
-  )
-}
+const App = () => {
 
-function App() {
+  const padding = {
+    padding: 5
+  }
 
   return (
-    <div>
-      <ListStamps />
-    </div>
+    <Router>
+      <div>
+        <Link style={padding} to="/">Home</Link>
+        <Link style={padding} to="/stamps">All Stamps</Link>
+        <Link style={padding} to="/open_stamps">Open Stamps</Link>
+        <Link style={padding} to="/completed_stamps">Completed Stamps</Link>
+      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/stamps" element={<AllStamps />} />
+        <Route path="/open_stamps" element={<OpenStamps />} />
+        <Route path="/completed_stamps" element={<CompletedStamps />} />
+        <Route path="/stamps/:id" element={<Stamp />} />
+      </Routes>
+
+      <div>
+        <i>GoraApp, by NOBS</i>
+      </div>
+
+    </Router>
   )
 }
 
