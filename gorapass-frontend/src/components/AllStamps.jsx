@@ -1,25 +1,17 @@
 
 import {Link} from "react-router-dom"
 import { useState, useEffect } from 'react'
-import Cookies from 'js-cookie'
-
 
 const AllStamps = () => {
 
   const [stamps, setStamps] = useState([])
 
-  const csrftoken = Cookies.get('csrftoken')
-
   useEffect(() => {
-    fetch("http://localhost:8000/gorapass/stamps", {
-      credentials:'include',
-      method:'POST',
-      headers: {'X-CSRFToken':csrftoken}
-    })
+    fetch("http://localhost:8000/gorapass/stamps")
       .then(response => response.json())
       .then(json => setStamps(json))
       .catch(error => console.error(error));
-  }, [csrftoken]);
+  }, []);
 
   return (
     <div>
@@ -30,7 +22,6 @@ const AllStamps = () => {
             <Link to={`/stamps/${stamp.id}`}>{stamp.stamp_name}</Link>
           </li>
         )}
-
       </ul>
     </div>
   )
