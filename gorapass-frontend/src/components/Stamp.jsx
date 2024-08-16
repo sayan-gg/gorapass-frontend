@@ -62,7 +62,6 @@ const Stamp = () => {
         {hikes.map(hike => {
           return <li key={hike.id}>{hike.hike_name}</li>
         })}
-      {/* <p>{hikes[0]}</p> */}
     </div>
 
 
