@@ -8,7 +8,7 @@ const CompletedHikes = () => {
   useEffect(() => {
     const fetchCompletedHikes = async () => {
       try {
-        const response = await fetch("http://localhost:8000/gorapass/users/2/completed_hikes", {
+        const response = await fetch("http://localhost:8000/gorapass/users/completed_hikes", {
           credentials: 'include',
         });
 

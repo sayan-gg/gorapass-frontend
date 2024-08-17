@@ -8,7 +8,7 @@ const CompletedStamps = () => {
   useEffect(() => {
     const fetchCompletedStamps = async () => {
       try {
-        const response = await fetch("http://localhost:8000/gorapass/users/2/completed_stamps", {
+        const response = await fetch("http://localhost:8000/gorapass/users/completed_stamps", {
           credentials: 'include',
         });
 
