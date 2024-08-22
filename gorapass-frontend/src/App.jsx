@@ -34,9 +34,10 @@ const App = () => {
   }
 
   const handleLogout = () => {
+    console.log('Logout was clicked!')
     console.log('handleLogout was called!')
     setIsLoggedIn(false)
-    console.log('isLoggedOut now set to: ' + isLoggedIn)
+    console.log('isLoggedIn now set to: ' + isLoggedIn)
   }
 
 
