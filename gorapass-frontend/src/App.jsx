@@ -19,9 +19,14 @@ import Logout from './components/Logout'
 
 const App = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    const savedIsLoggedIn = localStorage.getItem('isLoggedIn');
+    return savedIsLoggedIn ? JSON.parse(savedIsLoggedIn) : false;
+  });
 
-  // setIsLoggedIn(false)
+  useEffect(() => {
+    localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
+  }, [isLoggedIn])
 
   console.log('isLoggedIn: ' + isLoggedIn)
 
