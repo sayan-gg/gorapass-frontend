@@ -8,7 +8,8 @@ const CompletedHikes = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:8000/gorapass/users/2/completed_hikes")
+    fetch("http://localhost:8000/gorapass/users/2/completed_hikes", {
+      credentials:'include'})
       .then(response => response.json())
       .then(json => setCompletedHikes(json))
       .catch(error => console.error(error));

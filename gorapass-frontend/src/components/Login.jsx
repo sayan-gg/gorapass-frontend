@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import {useState} from "react";
 import Cookies from 'js-cookie';
 
@@ -15,7 +15,7 @@ import Cookies from 'js-cookie';
     alert(`Submit button pressed. Username: ${username}, Password: ${password.value}`)
 
     const csrftoken = Cookies.get('csrftoken')
-    const url = "http://localhost:8000/gorapass/users/login"
+    const url = "http://localhost:8000/gorapass/login/"
 
     const loginUser = async() => {
       try {

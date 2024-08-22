@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Routes, Route, Link,
 } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 import Home from './components/Home'
@@ -13,6 +13,7 @@ import CompletedStamps from './components/CompletedStamps'
 import Stamp from './components/Stamp'
 import RegisterAndLogin from './components/RegisterAndLogin'
 import CompletedHikes from './components/CompletedHikes'
+import Logout from './components/Logout'
 
 
 
@@ -40,6 +41,8 @@ const App = () => {
         <Link style={padding} to="/completed_stamps">Completed Stamps</Link>
         <Link style={padding} to="/completed_hikes">Completed Hikes</Link>
         <Link style={padding} to="/register">Sign In</Link>
+        <Link style={padding} to="/logout">Sign out</Link>
+
       </div>
 
       <Routes>
@@ -48,9 +51,9 @@ const App = () => {
         <Route path="/open_stamps" element={<OpenStamps />} />
         <Route path="/completed_stamps" element={<CompletedStamps />} />
         <Route path="/stamps/:id" element={<Stamp />} />
-        <Route path="/register" element = {<RegisterAndLogin />} />
         <Route path="/completed_hikes" element = {<CompletedHikes />} />
-        {/* <Route path="/login" element = {<Login />} /> */}
+        <Route path="/register" element = {<RegisterAndLogin />} />
+        <Route path="/logout" element = {<Logout />} />
       </Routes>
 
       <div>
