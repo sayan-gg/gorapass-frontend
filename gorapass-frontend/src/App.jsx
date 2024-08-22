@@ -19,17 +19,37 @@ import Logout from './components/Logout'
 
 const App = () => {
 
-  // const [token, setToken] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState();
 
-  // if(!token) {
-  //   return (
-  //       <RegisterAndLogin />
-  //   )
-  // }
+  // setIsLoggedIn(false)
+
+  console.log('isLoggedIn: ' + isLoggedIn)
+
+  const handleLogin = () => {
+    console.log('handleLogin was called!')
+    setIsLoggedIn(true)
+    console.log('isLoggedIn now set to: ' + isLoggedIn)
+    console.log(isLoggedIn)
+
+  }
+
+  const handleLogout = () => {
+    console.log('handleLogout was called!')
+    setIsLoggedIn(false)
+    console.log('isLoggedOut now set to: ' + isLoggedIn)
+  }
+
+
+  if(!isLoggedIn) {
+    return (
+        <RegisterAndLogin handleLogin={handleLogin}/>
+    )
+  }
 
   const padding = {
     padding: 5
   }
+
 
 
   return (
@@ -52,8 +72,8 @@ const App = () => {
         <Route path="/completed_stamps" element={<CompletedStamps />} />
         <Route path="/stamps/:id" element={<Stamp />} />
         <Route path="/completed_hikes" element = {<CompletedHikes />} />
-        <Route path="/register" element = {<RegisterAndLogin />} />
-        <Route path="/logout" element = {<Logout />} />
+        <Route path="/register" element = {<RegisterAndLogin handleLogin={handleLogin}/>} />
+        <Route path="/logout" element = {<Logout handleLogout={handleLogout}/>} />
       </Routes>
 
       <div>
