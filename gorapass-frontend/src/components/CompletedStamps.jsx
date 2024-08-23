@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 
 const CompletedStamps = () => {
   const navigate = useNavigate();
@@ -38,10 +40,10 @@ const CompletedStamps = () => {
     <div>
       <h1>All Completed Stamps</h1>
       <ul>
-          {completedStamps.map(stamp =>
+        {completedStamps.map(stamp =>
           <li key={stamp.id}>
-            {stamp.stamp_name}
-          </li>
+            <Link to={`/stamps/${stamp.id}`}>{stamp.stamp_name}</Link>
+            </li>
         )}
       </ul>
     </div>

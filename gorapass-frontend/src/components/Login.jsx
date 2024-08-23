@@ -1,8 +1,8 @@
-// import React from 'react';
+import React from 'react';
 import {useState} from "react";
 import Cookies from 'js-cookie';
 
- const Login = () => {
+ const Login = ({ handleLogin }) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState({
@@ -19,15 +19,20 @@ import Cookies from 'js-cookie';
 
     const loginUser = async() => {
       try {
-        await fetch(url, {
-          credentials: 'include',
-          method: 'POST',
-          headers: {'X-CSRFToken':csrftoken, 'content-type':'application/json'},
-          body: JSON.stringify({
-            'username': username,
-            'password': password.value,
-          })
-        })
+        const response = await fetch(url, {
+                                      credentials: 'include',
+                                      method: 'POST',
+                                      headers: {'X-CSRFToken':csrftoken, 'content-type':'application/json'},
+                                      body: JSON.stringify({
+                                        'username': username,
+                                        'password': password.value,
+                                      })
+                                    })
+
+        if (response.ok) {
+          console.log('Login successful.');
+          handleLogin();
+        }
       } catch (error) {
         console.log("error", error)
       }

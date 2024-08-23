@@ -15,7 +15,7 @@ const AllStamps = () => {
 
   return (
     <div>
-      <h1>List of All Available Stamps</h1>
+      <h1>Touch Points</h1>
       <ul>
          {stamps.map(stamp =>
           <li key={stamp.id}>
