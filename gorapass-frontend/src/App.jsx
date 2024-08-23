@@ -5,16 +5,14 @@ import {
 } from 'react-router-dom'
 import { useState } from 'react'
 
-
-import Home from './components/Home'
 import AllStamps from './components/AllStamps'
-import OpenStamps from './components/OpenStamps'
-import CompletedStamps from './components/CompletedStamps'
-import Stamp from './components/Stamp'
-import RegisterAndLogin from './components/RegisterAndLogin'
 import CompletedHikes from './components/CompletedHikes'
-
-
+import CompletedStamps from './components/CompletedStamps'
+import Home from './components/Home'
+import Login from './components/Login'
+import OpenStamps from './components/OpenStamps'
+import RegisterAndLogin from './components/RegisterAndLogin'
+import Stamp from './components/Stamp'
 
 const App = () => {
 
@@ -50,7 +48,7 @@ const App = () => {
         <Route path="/stamps/:id" element={<Stamp />} />
         <Route path="/register" element = {<RegisterAndLogin />} />
         <Route path="/completed_hikes" element = {<CompletedHikes />} />
-        {/* <Route path="/login" element = {<Login />} /> */}
+        <Route path="/login" element = {<Login />} />
       </Routes>
 
       <div>
